@@ -1,15 +1,15 @@
 import { supabase } from "./supabase"
 
-async function getMenu() {
+async function getCategory() {
 
   const { data, error } = await supabase
-    .from('Menu')
+    .from('category')
     .select('*')
 
   if (error) {
-    throw Error("Failed to fetch Menu : ", error)
+    throw Error("Failed to fetch Category : ", error)
   }
   return data
 
 }
-export default getMenu
+export default getCategory

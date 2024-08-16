@@ -3,4 +3,4 @@ import { SUPERBASE_URL, SUPERBASE_kEY } from "../config/config";
 
 
 
-export const suparbase = createClient(SUPERBASE_URL,SUPERBASE_kEY);
+export const supabase = createClient(SUPERBASE_URL,SUPERBASE_kEY);

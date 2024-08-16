@@ -8,8 +8,11 @@ import Order from "./features/order/Order";
 import AppLayout from "./utils/AppLayout";
 import Error from "./ui/Error";
 
-//render as u fetch 
+//render as u fetch
 import { menuLoader } from "./features/menu/menuLoader";
+import User from "./features/user/User";
+import { Category } from "@mui/icons-material";
+import { categoryLoader } from "./features/menu/categoryLoader";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {  
+        path: "/category",
+        element: <Category />,
+        loader: categoryLoader
+      },
       {
         path: "/menu",
         element: <Menu />,
@@ -29,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
       {
         path: "/order/new",

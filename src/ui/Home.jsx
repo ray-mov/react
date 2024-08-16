@@ -1,5 +1,11 @@
+import Category from "../features/menu/Category";
+
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <Category />
+    </>
+  );
 };
 
 export default Home;

@@ -1,2 +1,2 @@
-import { suparbase } from "./superbase"
+import { supabase } from "./superbase"
 
