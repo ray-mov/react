@@ -11,6 +11,9 @@ import Users from "./pages/Users";
 import AppLayout from "./ui/AppLayout";
 import Customers from "./pages/Customers";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
+import Menu from "./pages/Menu";
 // import styled from "styled-components";
 //
 // const H1 = styled.h1`
@@ -32,17 +35,43 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="orders" element={<Orders />} />
             <Route path="users" element={<Users />} />
             <Route path="customers" element={<Customers />} />
+            <Route path="menu" element={<Menu />} />
           </Route>
+
           <Route path="login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "60px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }

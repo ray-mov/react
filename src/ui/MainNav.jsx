@@ -62,6 +62,12 @@ const MainNav = () => {
             <span>Users</span>
           </StyledNavLink>
         </li>
+        <li>
+          <StyledNavLink to="/menu">
+            <HiMiniUserCircle />
+            <span>Menu</span>
+          </StyledNavLink>
+        </li>
       </NavList>
     </nav>
   );

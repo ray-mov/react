@@ -1,8 +1,8 @@
-import { suparbase } from "./superbase"
+import { supabase } from "./supabase"
 
 async function getAllOrders() {
 
-  const { data, error } = await suparbase
+  const { data, error } = await supabase
     .from('orders')
     .select('*')
 
@@ -12,7 +12,21 @@ async function getAllOrders() {
   return data
 
 }
-export { getAllOrders }
+async function cancelOrder(id) {
+  const { error } = await supabase
+    .from('orders')
+    .delete()
+    .eq("id", id)
+  if (error) {
+    throw Error("Order cannot be canceled : ", error)
+  }
+  
+}
+
+
+export { getAllOrders, cancelOrder }
+
+
 
 
 
