@@ -1,3 +1,4 @@
+import AddToCartButton from "./AddToCartButton";
 
 
 const MenuItem = ({item}) => {
@@ -7,6 +8,7 @@ const MenuItem = ({item}) => {
       <img src="" alt="item" />
       <div>
         <p>{name}</p>
+        <AddToCartButton />
       </div>
     </li>
   )

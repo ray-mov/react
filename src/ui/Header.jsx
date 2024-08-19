@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import BurgerLogo from "/burgerlogo.png";
+import { HiShoppingCart } from "react-icons/hi";
+import { HiOutlineUser } from "react-icons/hi";
 
 const Header = () => {
   return (
@@ -9,10 +11,16 @@ const Header = () => {
       </Link>
       <ul className="text-md flex gap-14">
         <li className="">
-          <Link to="/user">My Account</Link>
+          <Link to="/user" className="flex gap-2 items-center">
+            <HiOutlineUser />
+            <span>My Account</span>
+          </Link>
         </li>
         <li>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" className="flex gap-2 items-center">
+            <HiShoppingCart />
+            <span>Cart</span>
+          </Link>
         </li>
       </ul>
     </header>
