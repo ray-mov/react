@@ -1,6 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
 
-import CartOverview from "../features/cart/CartOverview";
 import Header from "../ui/Header";
 
 const AppLayout = () => {
@@ -11,10 +10,9 @@ const AppLayout = () => {
     <div>
       {isLoading ? <h1>loding..</h1> : null}
       <Header />
-      <main>
+      <main className="flex flex-col items-center gap-12">
         <Outlet />
       </main>
-      <CartOverview />
     </div>
   );
 };

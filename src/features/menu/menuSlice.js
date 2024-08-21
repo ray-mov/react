@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import getCategory from '../../services/apiCategory';
+import getMenu from '../../services/apiMenu';
 
-export const categorySlice = createApi({
-  reducerPath: 'api/category',
-  baseQuery: fetchBaseQuery({ baseUrl: '/' }), 
+export const menuSlice = createApi({
+  reducerPath: 'api/menu',
+  baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   endpoints: (builder) => ({
-    getCategories: builder.query({
-      queryFn: async () => {
+    getMenu: builder.query({
+      queryFn: async (catId) => {
         try {
-          const data = await getCategory(); // Call your function here
+          const data = await getMenu(catId); // Call your function here
           return { data }; // Return the data if successful
         } catch (error) {
           return { error: { status: 'CUSTOM_ERROR', error: error.message } }; // Handle errors
@@ -20,4 +20,4 @@ export const categorySlice = createApi({
   }),
 });
 
-export const { useGetCategoriesQuery } = categorySlice;
+export const { useGetMenuQuery } = menuSlice;

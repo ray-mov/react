@@ -5,6 +5,7 @@ async function getCategory() {
   const { data, error } = await supabase
     .from('category')
     .select('*')
+  
 
   if (error) {
     throw Error("Failed to fetch Category : ", error)
