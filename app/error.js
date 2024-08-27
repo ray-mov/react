@@ -1,5 +1,7 @@
 "use client"
 
+//NFD : only work for rendering error 
+// do not works in root layout
 
 function Error({ error, reset }) {
   return (

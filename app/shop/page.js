@@ -4,22 +4,32 @@ import ProductBar from "../_components/productBar"
 
 import ProductList from "../_components/productList"
 import { Suspense } from "react"
+import BreadcrumPageNav from "../_components/breadcrumPageNav"
 
-const Shop = () => {
+const Shop = ({ searchParams }) => {
+
+  console.log(searchParams);
+
+  const filter = searchParams?.name || ""
+  console.log(filter);
+
+
   return (
-    <div>
-      <h1>breadcrum nav</h1>
-      <div className="flex">
+    <div className="md:px-5  lg:px-20 w-full ">
+      <BreadcrumPageNav />
+
+      <div className="flex gap-6  ">
         <ProductFilters />
-        <div>
+        <div className="flex-1">
           <ProductBar />
-          <Suspense fallback={<h1>loading suspense....</h1>}>
-            <ProductList />
+          <Suspense fallback={<h1>loading suspense....</h1>} key={filter}>
+            <ProductList filter={filter} />
           </Suspense>
         </div>
-
-
       </div>
+
+
+
     </div>
   )
 }

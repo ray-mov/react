@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "./_components/navigation";
 
 import { Roboto, Poppins } from "next/font/google";
+import Footer from "./_components/footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
 
         <Navigation />
 
-        {children}</body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

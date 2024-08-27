@@ -30,15 +30,19 @@ const Navigation = () => {
           <CiSearch size={24} />
         </li>
         <li>
-          <CiUser size={24} />
+          <Link href={"/account/profile"}>
+            <CiUser size={24} />
+          </Link>
         </li>
         <li>
-          <div className="relative">
-            <CiShoppingCart size={24} />
-            <div className="absolute left-4 bottom-2 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white">
-              {0}
+          <Link href={"/cart"}>
+            <div className="relative">
+              <CiShoppingCart size={24} />
+              <div className="absolute left-4 bottom-2 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center text-white">
+                {0}
+              </div>
             </div>
-          </div>
+          </Link>
 
         </li>
       </ul>
