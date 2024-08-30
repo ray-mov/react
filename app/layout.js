@@ -4,6 +4,7 @@ import Navigation from "./_components/navigation";
 
 import { Roboto, Poppins } from "next/font/google";
 import Footer from "./_components/footer";
+import { CartProvider } from "./_components/context/CartContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -28,11 +29,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-
-        <Navigation />
-
-        {children}
-        <Footer />
+        <CartProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

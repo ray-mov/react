@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import { useCart } from '../_components/context/CartContext';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([
@@ -23,6 +24,10 @@ const CartPage = () => {
       image: '/path-to-image.jpg', // Replace with your image path
     },
   ]);
+
+  const { cart } = useCart()
+  console.log(cart);
+
 
   const handleQuantityChange = (id, quantity) => {
     setCartItems(

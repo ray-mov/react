@@ -7,15 +7,18 @@ const ProductCard = ({ item }) => {
 
 
   return (
-    <Link href={`/product/${id}`}>
-      <div className=" flex flex-col max-w-72 items-center gap-2 ">
-        <div className="relative flex-1">
+    <Link href={`/product/${id}`}
+      className="border-2 max-w-72 rounded-sm pb-2" >
+      <div className=" flex flex-col  items-center gap-2 relative">
+        <div className=" flex-1">
           <Image src={img_urls[0]} alt={`${name}`}
-            width={230} height={300}
-
-            className="border-2" />
+            width={240} height={290}
+          />
         </div>
-        <p className="font-mono text-base text-center">{name}</p>
+        <p className="font-mono text-base text-center text-wrap ">{name}</p>
+        <p className="space-x-4 font-mono text-base  text-"><span className="line-through decoration-red-500">{regular_price}</span>
+          <span>{discount_price}</span>
+        </p>
       </div>
     </Link>
   )

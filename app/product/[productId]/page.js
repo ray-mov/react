@@ -1,4 +1,5 @@
 
+import AddToCartButton from "@/app/_components/buttons/AddToCartButton";
 import ProductDetailImage from "@/app/_components/productDetailImage";
 import { createClient } from "@/Utils/supabase/server"
 import { notFound } from "next/navigation"
@@ -52,7 +53,7 @@ async function Product({ params }) {
           <button className="py-1 px-4 border-2 border-black rounded-xl font-semibold">L</button>
         </div>
         <button className="mt-2 py-1 px-4 border-2 border-black rounded-3xl font-semibold bg-black text-white">Buy Now</button>
-        <button className="mt-2 py-1 px-4 border-2 border-black rounded-3xl font-semibold ">Add To Cart</button>
+        <AddToCartButton product={product} />
         <h2 className="font-semibold">Description</h2>
         <p className="divide-opacity-70">{product.description}</p>
       </div>
