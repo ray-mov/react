@@ -12,7 +12,7 @@ export default async function ProductList({ filter }) {
   if (!products.length) return null
 
   return (
-    <div className='flex gap-6 flex-wrap w-full'>
+    <div className='flex gap-3 flex-wrap justify-between  w-full'>
       {
         products.map((item) => {
           return <ProductCard item={item} key={item.id} />

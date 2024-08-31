@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { CiUser, CiShoppingCart, CiSearch } from "react-icons/ci";
-import { auth } from "../_lib/Auth";
+// import { auth } from "../_lib/Auth";
 
 
 
 
 const Navigation = async () => {
 
-  const session = await auth()
-  console.log(session);
+  // const session = await auth()
+  // console.log(session);
 
   return (
     <nav className="flex justify-between items-center md:px-5 md:py-4 lg:px-20 lg:py-10" >

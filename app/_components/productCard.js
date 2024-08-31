@@ -8,11 +8,11 @@ const ProductCard = ({ item }) => {
 
   return (
     <Link href={`/product/${id}`}
-      className="border-2 max-w-72 rounded-sm pb-2" >
+      className="border max-w-68 rounded-sm pb-2" >
       <div className=" flex flex-col  items-center gap-2 relative">
         <div className=" flex-1">
           <Image src={img_urls[0]} alt={`${name}`}
-            width={240} height={290}
+            width={220} height={250}
           />
         </div>
         <p className="font-mono text-base text-center text-wrap ">{name}</p>

@@ -15,21 +15,19 @@ async function HomeTrend() {
 
 
   return (
-    <div className='flex py-10 lg:px-20'>
+    <div className='flex py-10 lg:px-20 gap-10'>
       <div className='relative max-h-[500px] max-w-[350px]'>
         <Image src={TrendImg} alt="Trending" />
         <div className="bg-white w-44 h-24 shadow-md absolute left-[0px] top-48 py-5 ">
           <h1 className="text-5xl ">#trend</h1>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3">
+      <div className="grid grid-cols-3 gap-4 items-center flex-1 ">
         {
           products.map((item) => {
-            <ProductCard key={item.id} item={item} />
+            return <ProductCard key={item.id} item={item} />
           })
         }
-
-
       </div>
 
     </div>

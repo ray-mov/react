@@ -37,11 +37,11 @@ async function Product({ params }) {
 
 
   return (
-    <div className="flex flex-col items-center lg:flex-row m-4 gap-6 lg:justify-center lg:items-start">
-      <div>
+    <div className="flex flex-col items-center lg:flex-row m-4 gap-10 lg:justify-center lg:items-start lg:px-24">
+      <div className="">
         <ProductDetailImage images={product.img_urls} />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-1/2">
         <h1 className="text-3xl font-semibold lg:text-4xl">{product.name}</h1>
         <p className="font-semibold opacity-70 space-x-2"><span>4.5</span> |<span>100k Reviews</span></p>
         <p className="font-medium text-2xl ">₹ <span className="mr-3 line-through decoration-red-500 decoration-2">{product.regular_price}</span>{product.discount_price}</p>

@@ -1,13 +1,13 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
-import { auth } from "./Auth"
+// import { auth } from "./Auth"
 
 export async function updateProfile(formData) {
-  const session = await auth()
-  if (!session) {
-    throw new Error("You must be logged in")
-  }
+  // const session = await auth()
+  // if (!session) {
+  //   throw new Error("You must be logged in")
+  // }
 
   const name = formData.get("name")
   const email = formData.get("email")

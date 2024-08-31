@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "./_components/navigation";
 
 import { Roboto, Poppins } from "next/font/google";
-import Footer from "./_components/footer";
+import Footer from "./_components/footer/footer";
 import { CartProvider } from "./_components/context/CartContext";
 
 const roboto = Roboto({
