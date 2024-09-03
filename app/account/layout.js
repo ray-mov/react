@@ -1,4 +1,5 @@
 import AccountSidebar from "../_components/AccountSidebar";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
   return (
@@ -7,6 +8,7 @@ export default function RootLayout({ children }) {
         <AccountSidebar />
       </div>
       <div className="w-9/12">
+        <Toaster />
         {children}
       </div>
     </main>

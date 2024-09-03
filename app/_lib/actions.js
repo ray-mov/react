@@ -21,3 +21,16 @@ export async function updateProfile(formData) {
   revalidatePath("/account/profile")
   //use supabase
 }
+
+export async function ApplyProductFilter(formData) {
+  const category = formData.get("category")
+  const size = formData.get("size")
+  const color = formData.get("color")
+  const price = formData.get("price")
+  revalidatePath("/shop")
+}
+
+
+export async function ApplyProductSort(formData) {
+
+}

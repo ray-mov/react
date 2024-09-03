@@ -1,4 +1,7 @@
+"use client"
+
 import { updateProfile } from "../_lib/actions"
+
 
 
 function UserProfileForm() {
@@ -31,6 +34,7 @@ function UserProfileForm() {
           required
         />
       </div>
+      <Button />
 
     </form>
 
@@ -38,3 +42,11 @@ function UserProfileForm() {
 }
 
 export default UserProfileForm
+
+import { useFormStatus } from 'react-dom'
+function Button() {
+  const { pending, } = useFormStatus()
+  return <button disabled={pending} className="disabled:bg-gray-100">
+    {pending ? 'updating' : "save change"}
+  </button>
+}

@@ -3,8 +3,9 @@ import "./globals.css";
 import Navigation from "./_components/navigation";
 
 import { Roboto, Poppins } from "next/font/google";
-import Footer from "./_components/footer/footer";
+import Footer from "./_components/footer/Footer";
 import { CartProvider } from "./_components/context/CartContext";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -31,6 +32,10 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <CartProvider>
           <Navigation />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
           {children}
           <Footer />
         </CartProvider>

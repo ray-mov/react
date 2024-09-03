@@ -1,6 +1,7 @@
 "use client"
 
 import { useCart } from "../context/CartContext"
+import toast from "react-hot-toast"
 
 function AddToCartButton({ product }) {
 
@@ -8,11 +9,7 @@ function AddToCartButton({ product }) {
 
   const { addToCart } = useCart()
 
-
-
-
   function handleCart() {
-
     const product = {
       id,
       name,
@@ -20,14 +17,13 @@ function AddToCartButton({ product }) {
       discount_price,
       regular_price,
       img: img_urls[0]
-
     }
-
     addToCart(product)
-
+    toast('Product Added To Cart', {
+      duration: 3000,
+      position: 'top-center',
+    })
   }
-
-
   return (
     <button className="mt-2 py-1 px-4 border-2 border-black rounded-3xl font-semibold " onClick={handleCart}>Add To Cart</button>
   )

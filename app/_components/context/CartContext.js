@@ -10,6 +10,8 @@ function CartProvider({ children }) {
   const [cart, setCart] = useState(initialState);
 
 
+
+
   //Add To Cart
 
   const addToCart = (product) => {
@@ -45,4 +47,4 @@ function useCart() {
   return context
 }
 
-export { CartProvider, useCart }
+export { CartProvider, useCart, }
