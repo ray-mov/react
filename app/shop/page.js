@@ -10,8 +10,8 @@ const Shop = ({ searchParams }) => {
 
   console.log(searchParams);
 
-  const filter = searchParams?.name || ""
-  console.log(filter);
+  const filter = searchParams?.cat || ""
+  console.log("filter", filter);
 
 
   return (

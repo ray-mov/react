@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { CiUser, CiShoppingCart, CiSearch } from "react-icons/ci";
-// import { auth } from "../_lib/Auth";
+// import { auth } from "../_lib/Auth";\
+import { auth } from "@/auth";
 
 
 
@@ -9,6 +10,11 @@ const Navigation = async () => {
 
   // const session = await auth()
   // console.log(session);
+
+  const session = await auth()
+  console.log(session);
+
+
 
   return (
     <nav className="flex justify-between items-center md:px-5 md:py-4 lg:px-20 lg:py-10" >
@@ -20,7 +26,7 @@ const Navigation = async () => {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/shop">Shop</Link>
+          <Link href="/shop" >Shop</Link>
         </li>
         <li>
           <Link href="/about">Men</Link>
@@ -47,10 +53,18 @@ const Navigation = async () => {
 
         </li>
         <li>
-          <Link href={"/account/profile"}>
-            {/* <CiUser size={24} /> */}
-            <button className="border-2 border-gray-400 py-1 px-2 rounded-xl opacity-80 shadow-lg hover:scale-105">Sign Up</button>
-          </Link>
+          {
+            session?.user?.image ? <Link href={"/account/profile"} className="flex items-center gap-2">
+              <p className=" text-gray-500 font-robo text-base">Hi, {session.user.name.split(" ")[0]}</p>
+              <img src={session.user.image} className="h-10 rounded-full" alt={session.user.name} referrerPolicy="no-referrer" />
+            </Link> :
+
+              <Link href={"/account/profile"}>
+                {/* <CiUser size={24} /> */}
+
+                <button className="border-2 border-gray-400 py-1 px-2 rounded-xl opacity-80 shadow-lg hover:scale-105">Sign Up</button>
+              </Link>
+          }
         </li>
       </ul>
     </nav>

@@ -12,7 +12,7 @@ function productFilters() {
       <div className="flex justify-between items-center">
         <h1 className="text-xl ">Products Filter :</h1>
         <div className="border border-black  p-2 hover:scale-105 shadow-md hover:bg-gray-100">
-          <button>Apply</button>
+          <button onClick={() => { }}>Apply</button>
         </div>
 
       </div>
