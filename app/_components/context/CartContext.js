@@ -47,4 +47,4 @@ function useCart() {
   return context
 }
 
-export { CartProvider, useCart, }
+export { CartProvider, useCart }

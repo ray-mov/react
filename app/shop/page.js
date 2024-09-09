@@ -17,7 +17,6 @@ const Shop = ({ searchParams }) => {
   return (
     <div className="md:px-5  lg:px-20 w-full ">
       <BreadcrumPageNav />
-
       <div className="flex gap-6  ">
         <ProductFilters />
         <div className="flex-1">
@@ -26,6 +25,8 @@ const Shop = ({ searchParams }) => {
             <ProductList filter={filter} />
           </Suspense>
         </div>
+
+
       </div>
 
 
