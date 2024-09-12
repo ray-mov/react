@@ -6,13 +6,16 @@ import { ApplyProductFilter } from "../_lib/actions"
 
 
 
-function productFilters() {
+function productFilters({ updateProductList }) {
   return (
-    <form className="border-2 px-2 py-5 min-w-72 rounded-md" action={ApplyProductFilter}>
+    <form className="border-2 px-2 py-5 min-w-72 rounded-md"
+      action={updateProductList}
+    >
       <div className="flex justify-between items-center">
         <h1 className="text-xl ">Products Filter :</h1>
         <div className="border border-black  p-2 hover:scale-105 shadow-md hover:bg-gray-100">
-          <button onClick={() => { }}>Apply</button>
+          <Button />
+          {/* <button onClick={() => ApplyProductFilter("x")}>CLIkc</button> */}
         </div>
 
       </div>
@@ -96,3 +99,14 @@ function productFilters() {
 }
 
 export default productFilters
+
+
+
+
+import { useFormStatus } from 'react-dom'
+function Button() {
+  const { pending, } = useFormStatus()
+  return <button disabled={pending} className="disabled:bg-gray-100">
+    {pending ? 'updating' : "Apply"}
+  </button>
+}

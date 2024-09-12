@@ -16,10 +16,22 @@ const Shop = ({ searchParams }) => {
   console.log("filter", filter);
   let products = null
 
-  const updateProductList = async ({ category, priceFrom, priceTo, size, color, pagefrom = 0, pageTo = 9 }) => {
+  const updateProductList = async (formData) => {
     "use server"
+    console.log("formData : ", formData);
+
+    const priceFrom = Number(formData.get("price").split("-")[0])
+    const priceTo = Number(formData.get("price").split("-")[1])
+
+    const color = formData.get("color")
+    const cartegory = formData.get("category")
+    const size = formData.get("size")
+
+    // { category, priceFrom, priceTo, size, color, pagefrom = 0, pageTo = 9 }
     const { data, error } = await supabase.from("products").select("*")?.ilike('name', `%${filter}%`).eq('color', color).eq('size', size).gte('discount_price', priceFrom).lte('discount_price', priceTo).range(pagefrom, pageTo)
     products = data
+    console.log(" action product", products);
+
   }
 
 
