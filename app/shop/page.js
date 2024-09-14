@@ -1,54 +1,18 @@
 
-import ProductFilters from "../_components/productFilters"
-import ProductBar from "../_components/productBar"
-
-import ProductList from "../_components/productList"
 import { Suspense } from "react"
-import { createClient } from "@/Utils/supabase/server"
-import BreadcrumPageNav from "../_components/breadcrumPageNav"
+import Shop from "../_components/product/Shop"
 
-const Shop = ({ searchParams }) => {
-  const supabase = createClient()
+const page = ({ searchParams }) => {
 
-  console.log(searchParams);
-
-  const filter = searchParams?.cat || ""
-  console.log("filter", filter);
-  let products = null
-
-  const updateProductList = async (formData) => {
-    "use server"
-    console.log("formData : ", formData);
-
-    const priceFrom = Number(formData.get("price").split("-")[0])
-    const priceTo = Number(formData.get("price").split("-")[1])
-
-    const color = formData.get("color")
-    const cartegory = formData.get("category")
-    const size = formData.get("size")
-
-    // { category, priceFrom, priceTo, size, color, pagefrom = 0, pageTo = 9 }
-    const { data, error } = await supabase.from("products").select("*")?.ilike('name', `%${filter}%`).eq('color', color).eq('size', size).gte('discount_price', priceFrom).lte('discount_price', priceTo).range(pagefrom, pageTo)
-    products = data
-    console.log(" action product", products);
-
-  }
-
+  const searchParam = searchParams?.cat
 
   return (
     <div className="md:px-5  lg:px-20 w-full ">
-      <BreadcrumPageNav />
-      <div className="flex gap-6  ">
-        <ProductFilters updateProductList={updateProductList} />
-        <div className="flex-1">
-          <ProductBar updateProductList={updateProductList} />
-          <Suspense fallback={<h1>loading suspense....</h1>} key={filter}>
-            <ProductList filter={filter} supabase={supabase} productData={products} />
-          </Suspense>
-        </div>
-      </div>
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Shop searchParam={searchParam} />
+      </Suspense>
     </div>
   )
 }
 
-export default Shop
+export default page

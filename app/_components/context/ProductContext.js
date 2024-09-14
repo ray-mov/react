@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState } from "react";
-
+import { createClient } from "@/Utils/supabase/client";
 
 const ProductContext = createContext()
 
@@ -19,30 +19,30 @@ const initialState = []
 
 
 function ProductProvider({ children }) {
-  const [page, setPage] = useState(initialState)
+  const [products, setProducts] = useState(initialState)
+  const supabase = createClient()
 
-  const getProduct = () => {
-    setPage((prevState) => {
+  const getProductList = async ({ filter = "" }) => {
+    let { data: products, error } = await supabase
+      .from('products')
+      .select("*")
+      .eq("category", filter)
+      .range(0, 9)
 
-      if (prevState.pageNumber === prevState.totalPages) {
-        return prevState
-      }
+    setProducts(products)
+    if (error) {
+      throw new Error(error)
 
-      return { ...prevState, pageNumber: prevState.pageNumber + 1, rangeFrom: prevState.rangeTo + 1, rangeTo: prevState.rangeTo + 9 }
-
-    })
+    }
   }
 
-  const previousPage = () => {
-    setPage((prevState) => {
-      if (prevState.pageNumber === 1) {
-        return prevState
-      }
-      return { ...prevState, pageNumber: prevState.pageNumber - 1 }
-    })
+  const updateProductList = () => {
+
   }
 
-  return <ProductContext.Provider value={{ page, setPage, nextPage, previousPage }}>
+
+
+  return <ProductContext.Provider value={{ products, setProducts, getProductList }}>
     {children}
   </ProductContext.Provider>
 }

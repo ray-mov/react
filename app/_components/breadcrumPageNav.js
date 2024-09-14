@@ -12,7 +12,7 @@ export default function BreadcrumPageNav() {
   return (
     <div className="py-3 text-lg font-robo font-medium opacity-80">
       {paths.map((item, index) => {
-        return item == "" ? <Link href={"/"} className="hover:scale-110 hover:text-blue-600">Home</Link> : <span key={index} className="hover:scale-105 cursor-pointer hover:text-blue-600"> &gt; {item}</span>
+        return item == "" ? <Link href={"/"} className="hover:scale-110 hover:text-blue-600" key={index}>Home</Link> : <span key={index} className="hover:scale-105 cursor-pointer hover:text-blue-600"> &gt; {item}</span>
       })}
     </div>
   )

@@ -2,20 +2,19 @@
 // import { useState } from "react";
 // import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { ApplyProductFilter } from "../_lib/actions"
 
 
 
-function productFilters({ updateProductList }) {
+
+function productFilters({ handleFilterProducts }) {
   return (
-    <form className="border-2 px-2 py-5 min-w-72 rounded-md"
-      action={updateProductList}
+    <form className="border-2 px-2 py-5 min-w-72 rounded-md" onSubmit={handleFilterProducts}
     >
       <div className="flex justify-between items-center">
         <h1 className="text-xl ">Products Filter :</h1>
         <div className="border border-black  p-2 hover:scale-105 shadow-md hover:bg-gray-100">
-          <Button />
-          {/* <button onClick={() => ApplyProductFilter("x")}>CLIkc</button> */}
+          {/* <Button handleFilterProducts={handleFilterProducts}/> */}
+          <button type='submit'>Apply</button>
         </div>
 
       </div>
@@ -106,7 +105,7 @@ export default productFilters
 import { useFormStatus } from 'react-dom'
 function Button() {
   const { pending, } = useFormStatus()
-  return <button disabled={pending} className="disabled:bg-gray-100">
+  return <button disabled={pending} className="disabled:bg-gray-100" onClick={handleFilterProducts}>
     {pending ? 'updating' : "Apply"}
   </button>
 }

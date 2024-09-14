@@ -1,5 +1,6 @@
 
 import ProductSortBy from './productSortBy'
+
 import PaginationBar from './product/paginationBar'
 
 const ProductBar = () => {
